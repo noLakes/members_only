@@ -9,11 +9,21 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <body>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
+    <nav>
+      <% if member_signed_in? %>
+        <%= link_to 'new post', new_post_path %>
+        <%= link_to 'log out', destroy_member_session_path, method: :delete %>
+      <% else %>
+        <%= link_to 'log in', new_member_session_path %>
+        <%= link_to 'sign up', new_member_registration_path %>
+      <% end %>
+    </nav>
 
-  <body>
     <%= yield %>
   </body>
 </html>
