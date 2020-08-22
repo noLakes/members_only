@@ -4,8 +4,6 @@ class DeviseCreateMembers < ActiveRecord::Migration[5.2]
   def change
     create_table :members do |t|
       ## Database authenticatable
-      t.string :username,           null: false, default: ""
-      t.string :name,               null: false, default: ""
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
@@ -15,7 +13,7 @@ class DeviseCreateMembers < ActiveRecord::Migration[5.2]
 
       ## Rememberable
       t.datetime :remember_created_at
-      
+
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
       # t.datetime :current_sign_in_at
